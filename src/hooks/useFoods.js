@@ -1,5 +1,5 @@
 import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
-import { getFoods } from "../api/FoodApi";
+import { getFoods } from "../api/foodApi";
 
 // Case 1: load bình thường
 export const useFoods = (params) => {
