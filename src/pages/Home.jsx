@@ -8,6 +8,8 @@ import FoodCard from "@/components/ui/FoodCard";
 import WhyChooseUsSection from "@/components/ui/WhChoseUsSection";
 import { useCombos } from "@/hooks/useCombos";
 import { useFoods } from "@/hooks/useFoods";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router";
 
 // const combos = [
 //     {
@@ -94,16 +96,18 @@ const HomePage = () => {
         data: combos = [],
         isLoading: isLoadingCombos,
         error: comboError,
-    } = useCombos({isFeatured: true});
+    } = useCombos({ isFeatured: true });
 
     const {
         data: foods = [],
         isLoading: isLoadingFoods,
         error: foodError,
-    } = useFoods({isFeatured: true});
+    } = useFoods({ isFeatured: true });
+
+    const featuredFoods = foods.slice(0, 5); // Lấy 5 món ăn đầu tiên để hiển thị trên trang chủ
 
     console.log("Combos:", combos);
-    console.log("Foods:", foods);
+    console.log("Foods:", featuredFoods);
 
     return (
         <MainLayout>
@@ -115,7 +119,7 @@ const HomePage = () => {
                 description="Chọn combo tiệc phù hợp cho ngày vui."
             />
             {/* combo list */}
-            <div className="mx-auto mb-2 max-w-6xl px-4">
+            <div className="flex flex-col  mx-auto mb-2 max-w-6xl px-4">
                 <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 md:gap-10">
                     {combos.map((combo) => (
                         <ComboCard
@@ -128,6 +132,13 @@ const HomePage = () => {
                         />
                     ))}
                 </div>
+
+                <Button
+                    className=" mt-3 mx-auto rounded-full border md: max-w-xl"
+
+                >
+                    <Link to="/combo">Xem thêm</Link>
+                </Button>
             </div>
 
             {/* Danh sach mon an */}
@@ -136,18 +147,26 @@ const HomePage = () => {
                 title="Thực đơn"
                 description="Khám phá những món ăn đặc sắc tại nhà hàng."
             />
-            <div className="mx-auto mb-10 max-w-7xl px-4">
-                <div className="grid grid-cols-1 gap-6 lg:grid-cols-5 md:gap-10">
-                    {foods.map((food) => (
+            <div className="flex flex-col mx-auto mb-10 max-w-7xl px-4">
+                <div className="grid grid-cols-1 gap-6 md:gap-10 lg:grid-cols-5">
+                    {featuredFoods.map((food) => (
                         <FoodCard
                             key={food._id}
                             img={food.img}
                             title={food.title}
                             description={food.description}
                             price={food.price}
+                            imageClassName="h-[180px] sm:h-[150px] md:h-[180px]"
                         />
                     ))}
                 </div>
+
+                <Button
+                    className=" mt-3 mx-auto rounded-full border md: max-w-xl"
+
+                >
+                    <Link to="/menu">Xem thêm</Link>
+                </Button>
             </div>
 
             {/* <WhyChooseUsSection /> */}
