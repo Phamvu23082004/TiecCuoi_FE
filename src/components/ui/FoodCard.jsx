@@ -81,6 +81,68 @@
 // export default FoodCard;
 
 
+// import React from "react";
+
+// const FoodCard = ({ img, title, description, price, imageClassName = "" }) => {
+//   return (
+//     <div
+//       className="
+//         group flex flex-col h-full
+//         overflow-hidden
+//         rounded-[20px]
+//         border border-[#e7ddd7]
+//         bg-[#f8f5f3]
+//         transition-all duration-300
+//         hover:-translate-y-1 hover:shadow-lg
+//       "
+//     >
+//       <img
+//         src={img}
+//         alt={title}
+//         className={`
+//           h-[100px] sm:h-[150px] md:h-[180px]
+//           w-full object-cover
+//           transition duration-500
+//           group-hover:scale-105
+//           ${imageClassName}
+//         `}
+//       />
+
+//       <div className="flex flex-col flex-1 px-3 py-1 sm:px-2 sm:py-3 text-center">
+//         <h3
+//           className="
+//             font-playfair
+//             text-[13px] sm:text-[17px] md:text-[22px]
+//             py-1
+//             leading-snug
+//             text-[#4b403d]
+//             line-clamp-2
+//             h-[36px] sm:h-[44px] 
+//           "
+//         >
+//           {title}
+//         </h3>
+
+//         <p
+//           className="
+//             hidden sm:block
+//             mt-2
+//             text-[13px] md:text-[14px]
+//             text-[#8d817b]
+//             line-clamp-2
+//             min-h-[40px]
+//           "
+//         >
+//           {description}
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default FoodCard;
+
+
 import React from "react";
 
 const FoodCard = ({ img, title, description, price, imageClassName = "" }) => {
@@ -108,16 +170,16 @@ const FoodCard = ({ img, title, description, price, imageClassName = "" }) => {
         `}
       />
 
-      <div className="flex flex-col flex-1 px-3 py-1 sm:px-2 sm:py-3 text-center">
+      <div className="flex flex-col flex-1 px-3 py-2 sm:px-4 sm:py-3 text-center">
         <h3
           className="
             font-playfair
-            text-[13px] sm:text-[17px] md:text-[22px]
-            py-1
+            text-[12px] sm:text-[17px] md:text-[22px]
             leading-snug
             text-[#4b403d]
             line-clamp-2
-            sm:min-h-[44px]
+            h-[34px] sm:h-[44px] md:h-[56px]
+            flex items-center justify-center
           "
         >
           {title}
